@@ -1,2 +1,3 @@
 # Esi-Sba-Comittee
-Esi SBA Committee is a web platform designed for the workers’ committee at ESI SBA. Its goal is to streamline internal operations, organize committee activities, and simplify how workers submit and track their requests. The platform is built using React.js for the frontend and Spring Boot for the backend.
+Esi SBA Committee is a digital management system for the workers’ committee at ESI SBA. It provides tools to manage committee functions, handle workflows, and improve communication. The platform helps workers easily submit demands, follow up on requests, and access committee services in a more transparent and organized way.
+Tech stack: React.js + Spring Boot.
