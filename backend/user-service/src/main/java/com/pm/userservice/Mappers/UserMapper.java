@@ -3,6 +3,8 @@ package com.pm.userservice.Mappers;
 import com.pm.userservice.DTO.UserRequestDTO;
 import com.pm.userservice.DTO.UserResponseDTO;
 import com.pm.userservice.Entity.User;
+import org.springframework.stereotype.Component;
+
 
 public record UserMapper() {
 

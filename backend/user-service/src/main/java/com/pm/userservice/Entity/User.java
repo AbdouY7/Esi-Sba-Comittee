@@ -30,7 +30,7 @@ public class User {
     @NotNull
     private String phone;
 
-    @NotNull
+
     private String password;
 
     @NotNull
@@ -41,6 +41,8 @@ public class User {
     private     CommitteePosition committeePosition;
 
     private Double salary;
+
+    private String isActive;
 
 
     private LocalDateTime CreatedAt;
