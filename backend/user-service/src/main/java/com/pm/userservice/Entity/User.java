@@ -14,6 +14,7 @@ import java.time.LocalDateTime;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
+@Table(name = "users")
 public class User {
 
     @Id
@@ -42,19 +43,38 @@ public class User {
 
     private Double salary;
 
-    private String isActive;
+    private boolean isActive;
 
 
-    private LocalDateTime CreatedAt;
-    private LocalDateTime UpdatedAt;
+    private LocalDateTime createdAt;
+    private LocalDateTime updatedAt;
 
     // to get the created dateTime & updated dateTime
     @PrePersist
-    protected  void OnCreate() {
-        CreatedAt = LocalDateTime.now();
+    protected  void onCreate() {
+        createdAt = LocalDateTime.now();
+        isActive = false;
+        if (role != Role.COMMITTEE) {
+            committeePosition = null;
+        }
     }
     @PreUpdate
-    protected  void OnUpdate() {
-        UpdatedAt = LocalDateTime.now();
+    protected  void onUpdate() {
+        updatedAt = LocalDateTime.now();
+        if (role != Role.COMMITTEE) {
+            committeePosition = null;
+        }
+    }
+
+    public boolean isValid() {
+        // If role is COMMITTEE, committeePosition must not be null
+        if (role == Role.COMMITTEE && committeePosition == null) {
+            return false;
+        }
+        // If role is not COMMITTEE, committeePosition must be null
+        if (role != Role.COMMITTEE && committeePosition != null) {
+            return false;
+        }
+        return true;
     }
 }

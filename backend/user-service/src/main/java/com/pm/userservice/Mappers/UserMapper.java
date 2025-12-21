@@ -14,20 +14,21 @@ public record UserMapper() {
         userResponseDTO.setUsername(user.getUsername());
         userResponseDTO.setEmail(user.getEmail());
         userResponseDTO.setPhoneNumber(user.getPhone());
-        userResponseDTO.setRole(user.getRole().toString());
-        userResponseDTO.setCommitteeposition(user.getCommitteePosition().toString());
+        userResponseDTO.setRole(user.getRole().name());
+        userResponseDTO.setCommitteeposition(user.getCommitteePosition() != null ?
+                user.getCommitteePosition().name() : null);
         userResponseDTO.setSalary(user.getSalary().toString());
-        userResponseDTO.setCreatedAt(user.getCreatedAt().toString());
+        userResponseDTO.setCreatedAt(user.getCreatedAt() != null ?
+                user.getCreatedAt().toString() : null);
         return userResponseDTO;
     }
 
     public static  User toUser(UserRequestDTO userRequestDTO) {
         User user = new User();
         user.setEmail(userRequestDTO.getEmail());
-        user.setPassword(userRequestDTO.getPassword());
         user.setPhone(userRequestDTO.getPhoneNumber());
         user.setRole(userRequestDTO.getRole());
-        user.setCommitteePosition(userRequestDTO.getCommitteeposition());
+        user.setCommitteePosition(userRequestDTO.getCommitteePosition());
         user.setSalary(userRequestDTO.getSalary());
         return user;
     }
