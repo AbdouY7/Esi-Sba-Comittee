@@ -49,6 +49,10 @@ public class User {
     private LocalDateTime createdAt;
     private LocalDateTime updatedAt;
 
+    private boolean emailIsVerified;
+    private String verificationToken;
+    private LocalDateTime  tokenExpiryDate;
+
     // to get the created dateTime & updated dateTime
     @PrePersist
     protected  void onCreate() {
